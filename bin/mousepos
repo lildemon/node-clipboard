@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+var path = require('path');
+var fs   = require('fs');
+var lib  = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+var ffi = require('ffi');
+var ref = require('ref');
+var StructType = require('ref-struct');
+
+var Point = StructType({
+	x: ref.types.long,
+	y: ref.types.long
+})
+
+var point = new Point;
+
+var user32 = ffi.Library('user32', {
+  GetCursorPos: ['bool',  ['pointer']],
+  SetCursorPos: ['bool', ['int', 'int']],
+  MessageBoxA: ['int', ['int32', 'string', 'string', 'uint']]
+});
+
+user32.GetCursorPos(point.ref());
+user32.MessageBoxA(0, point, 'win32api', 0);
+
+/*setInterval(function(){
+	user32.SetCursorPos(50,50);
+}, 500)*/
+
+
+console.log(point)
