@@ -7,6 +7,5 @@ var argv = require('optimist').argv
 var clipboard = require(lib + '/clipboard');
 
 if(argv._.length) {
-	//clipboard.write(argv._[0]);
-	clipboard.write('中文a');
+	clipboard.write(argv._[0]);
 }
