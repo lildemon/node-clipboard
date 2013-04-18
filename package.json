@@ -15,7 +15,7 @@
     "clipb": "./bin/clipb"
   },
   "dependencies": {
-    "node-ffi": ">=0.5",
+    "ffi": "*",
     "optimist": "0.4.0"
   }
 }
