@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var path = require('path');
+var fs   = require('fs');
+var lib  = path.join(path.dirname(fs.realpathSync(__filename)), '../lib');
+
+var argv = require('optimist').argv
+var clipboard = require(lib + '/clipboard');
+
+if(argv._.length) {
+	//clipboard.write(argv._[0]);
+	clipboard.write('中文a');
+}

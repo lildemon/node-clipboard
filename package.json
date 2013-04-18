@@ -11,7 +11,11 @@
   "engines": {
     "node": ">=0.6"
   },
+  "bin": {
+    "clipb": "./bin/clipb"
+  },
   "dependencies": {
-    "node-ffi": "0.5"
+    "node-ffi": ">=0.5",
+    "optimist": "0.4.0"
   }
 }
